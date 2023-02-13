@@ -39,7 +39,7 @@ public class Frame extends JFrame {
 
 		this.setLayout(new BorderLayout());//Set the layout for the frame
 		
-		this.setTitle("Five Star Clothing Query");	//Set the title		
+		this.setTitle("Five Star Clothing Query");//Set the title		
 
 		searchPanel = new JPanel(); //Search panel
 		resultPanel = new ResultPanel(); //Result panel
