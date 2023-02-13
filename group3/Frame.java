@@ -38,7 +38,7 @@ public class Frame extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		this.setLayout(new BorderLayout());//Set the layout for the frame
-		
+
 		this.setTitle("Five Star Clothing Query");//Set the title		
 
 		searchPanel = new JPanel(); //Search panel
@@ -46,11 +46,11 @@ public class Frame extends JFrame {
 
 		searchPanel.setLayout(new GridBagLayout()); //Set search panel layout
 		GridBagConstraints gbc = new GridBagConstraints();
-		
+
 		searchAllLabel = new JLabel("Show all customers: ");
 		searchAllLabel.setLabelFor(allUsersButton);
 		gbc.anchor = GridBagConstraints.EAST;
-	        //gbc.fill = GridBagConstraints.BOTH;
+		//gbc.fill = GridBagConstraints.BOTH;
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		gbc.gridwidth = 1;
@@ -62,48 +62,48 @@ public class Frame extends JFrame {
 		allUsersButton = new JButton("Search all");
 		allUsersButton.setToolTipText("Display information for all customers in the database");
 		gbc.anchor = GridBagConstraints.WEST;
-	        //gbc.fill = GridBagConstraints.BOTH;
+		//gbc.fill = GridBagConstraints.BOTH;
 		gbc.gridx = 1;
-	    	gbc.gridy = 0;
-	    	gbc.gridwidth = 1;
-	    	gbc.weightx = 0.5;
-	    	gbc.weighty = 0;
-	    	gbc.insets = new Insets(20, 0, 15, 0); //top, left, bottom, right
-	    	searchPanel.add(allUsersButton, gbc);
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.weightx = 0.5;
+		gbc.weighty = 0;
+		gbc.insets = new Insets(20, 0, 15, 0); //top, left, bottom, right
+		searchPanel.add(allUsersButton, gbc);
 	    
 		userNameLabel = new JLabel("Enter customer name: ");
 		gbc.anchor = GridBagConstraints.EAST;
-	    	//gbc.fill = GridBagConstraints.BOTH;
+		//gbc.fill = GridBagConstraints.BOTH;
 		gbc.gridx = 3;
-	    	gbc.gridy = 0;
-	    	gbc.gridwidth = 1;
-	    	gbc.weightx = 0.1;
-	    	gbc.weighty = 0;
-	    	gbc.insets = new Insets(20, 0, 15, 0); //top, left, bottom, right
-	    	searchPanel.add(userNameLabel, gbc);
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.weightx = 0.1;
+		gbc.weighty = 0;
+		gbc.insets = new Insets(20, 0, 15, 0); //top, left, bottom, right
+		searchPanel.add(userNameLabel, gbc);
 	    	
 		userName = new JTextField(12);
 		gbc.anchor = GridBagConstraints.CENTER;
-	    	gbc.fill = GridBagConstraints.BOTH;
-	    	gbc.gridx = 4;
-	    	gbc.gridy = 0;
-	    	gbc.gridwidth = 1;
-	    	gbc.weightx = 0.5;
-	   	gbc.weighty = 0;
-	    	gbc.insets = new Insets(20, 0, 15, 0); //top, left, bottom, right
-	    	searchPanel.add(userName, gbc);
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.gridx = 4;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.weightx = 0.5;
+		gbc.weighty = 0;
+		gbc.insets = new Insets(20, 0, 15, 0); //top, left, bottom, right
+		searchPanel.add(userName, gbc);
 	    
 		orderHistoryButton = new JButton("Search");
 		orderHistoryButton.setToolTipText("Display all order history for customer");
 		gbc.anchor = GridBagConstraints.WEST;
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridx = 5;
-	    	gbc.gridy = 0;
-	    	gbc.gridwidth = 1;
-	    	gbc.weightx = 0.5;
-	    	gbc.weighty = 0;
-	    	gbc.insets = new Insets(20, 0, 15, 0); //top, left, bottom, right
-	    	searchPanel.add(orderHistoryButton, gbc);
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.weightx = 0.5;
+		gbc.weighty = 0;
+		gbc.insets = new Insets(20, 0, 15, 0); //top, left, bottom, right
+		searchPanel.add(orderHistoryButton, gbc);
 	    
 		this.add(searchPanel, BorderLayout.PAGE_START);//Add panels to the frame
 		this.add(resultPanel, BorderLayout.CENTER);
