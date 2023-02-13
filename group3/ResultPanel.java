@@ -59,71 +59,71 @@ public class ResultPanel extends JPanel {
 	private void placeComponents(Container pane) {			
 		pane.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
-			
+
 		resultLabel = new JLabel(""); //Text changes based on the chosen query
 		//gbc.anchor = GridBagConstraints.CENTER;
 		//gbc.fill = GridBagConstraints.BOTH;	
 		gbc.gridx = 1;
-	    gbc.gridy = 2;
-	    gbc.gridwidth = 4;
-	    gbc.weightx = 0.5;
-	    gbc.weighty = 0;
-	    gbc.insets = new Insets(0, 0, 10, 0); //top, left, bottom, right
-	    pane.add(resultLabel, gbc);
+		gbc.gridy = 2;
+		gbc.gridwidth = 4;
+		gbc.weightx = 0.5;
+		gbc.weighty = 0;
+		gbc.insets = new Insets(0, 0, 10, 0); //top, left, bottom, right
+		pane.add(resultLabel, gbc);
 		
 		scroll = new JScrollPane(resultTable); //Add resultTable to scrollPane
 		//gbc.anchor = GridBagConstraints.WEST;
-	    gbc.fill = GridBagConstraints.BOTH;
+	        gbc.fill = GridBagConstraints.BOTH;
 		gbc.gridx = 2;
-	    gbc.gridy = 3;
-	    gbc.gridwidth = 4;
-	    gbc.weightx = 1;
-	    gbc.weighty = 1;
-	    gbc.insets = new Insets(8, 15, 0, 15);
-	    pane.add(scroll, gbc);
+	        gbc.gridy = 3;
+	        gbc.gridwidth = 4;
+		gbc.weightx = 1;
+		gbc.weighty = 1;
+		gbc.insets = new Insets(8, 15, 0, 15);
+		pane.add(scroll, gbc);
 		
-	    gbc.anchor = GridBagConstraints.EAST;
-	    gbc.fill = GridBagConstraints.NONE;
-	    gbc.gridx = 2;
-	    gbc.gridy = 4;
-	    gbc.gridwidth = 1;
-	    gbc.weightx = 0.5;
-	    gbc.weighty = 0;
-	    gbc.insets = new Insets(0, 0, 0, 5);
-	    pane.add(new JLabel("Print Settings:"), gbc);
+		gbc.anchor = GridBagConstraints.EAST;
+		gbc.fill = GridBagConstraints.NONE;
+		gbc.gridx = 2;
+		gbc.gridy = 4;
+		gbc.gridwidth = 1;
+		gbc.weightx = 0.5;
+		gbc.weighty = 0;
+		gbc.insets = new Insets(0, 0, 0, 5);
+		pane.add(new JLabel("Print Settings:"), gbc);
 	    
-	    printModeCheckBox = new JCheckBox("Fit to width");
-	    gbc.anchor = GridBagConstraints.WEST;
-	    //gbc.fill = GridBagConstraints.NONE;
-	    gbc.gridx = 3;
-	    gbc.gridy = 4;
-	    gbc.gridwidth = 1;
-	    gbc.weightx = 0.5;
-	    gbc.weighty = 0;
-	    gbc.insets = new Insets(5, 0, 0, 0);  //top, left, bottom, right
-	    pane.add(printModeCheckBox, gbc);
+		printModeCheckBox = new JCheckBox("Fit to width");
+		gbc.anchor = GridBagConstraints.WEST;
+		//gbc.fill = GridBagConstraints.NONE;
+		gbc.gridx = 3;
+		gbc.gridy = 4;
+		gbc.gridwidth = 1;
+		gbc.weightx = 0.5;
+		gbc.weighty = 0;
+		gbc.insets = new Insets(5, 0, 0, 0);  //top, left, bottom, right
+		pane.add(printModeCheckBox, gbc);
 	    
 		dateCheckBox = new JCheckBox("Include date");
-	    //gbc.anchor = GridBagConstraints.WEST;
-	    //gbc.fill = GridBagConstraints.NONE;
+	        //gbc.anchor = GridBagConstraints.WEST;
+	        //gbc.fill = GridBagConstraints.NONE;
 		gbc.gridx = 3;
-	    gbc.gridy = 5;
-	    gbc.gridwidth = 1;
-	    gbc.weightx = 0.5;
-	    gbc.weighty = 0;
-	    gbc.insets = new Insets(0, 0, 0, 0);
-	    pane.add(dateCheckBox, gbc);
+	        gbc.gridy = 5;
+	        gbc.gridwidth = 1;
+	        gbc.weightx = 0.5;
+	        gbc.weighty = 0;
+	        gbc.insets = new Insets(0, 0, 0, 0);
+	        pane.add(dateCheckBox, gbc);
 		
-	    printButton = new JButton("Print Table"); //Create the print button	
-	    gbc.anchor = GridBagConstraints.WEST;
-	    //gbc.fill = GridBagConstraints.BOTH;
-	    gbc.gridx = 4;
-	    gbc.gridy = 4;
-	    gbc.gridwidth = 1;
-	    gbc.weightx = 0.5;
-	    gbc.weighty = 0;
-	    gbc.insets = new Insets(10, 20, 0, 0);
-	    pane.add(printButton, gbc);
+	        printButton = new JButton("Print Table"); //Create the print button	
+	        gbc.anchor = GridBagConstraints.WEST;
+	        //gbc.fill = GridBagConstraints.BOTH;
+	        gbc.gridx = 4;
+	        gbc.gridy = 4;
+	        gbc.gridwidth = 1;
+	        gbc.weightx = 0.5;
+	        gbc.weighty = 0;
+	        gbc.insets = new Insets(10, 20, 0, 0);
+	        pane.add(printButton, gbc);
 	}
 	
 }
