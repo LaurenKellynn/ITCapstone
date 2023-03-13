@@ -1,0 +1,27 @@
+
+body {
+	font-family: Arial, sans-serif;
+	padding: 20px;
+	background-image: url('Background.jpg');
+		background-size: cover;
+	text-align:center;
+}
+table {
+	border-collapse: collapse;
+	margin-bottom: 20px;
+	width: 100%;
+}
+table th,
+table td {
+	border: 1px solid #ccc;
+	padding: 8px;
+	text-align: left;
+}
+table th {
+	background-color: #f2f2f2;
+	font-weight: bold;
+}
+.total {
+	font-weight: bold;
+	text-align: right;
+}
