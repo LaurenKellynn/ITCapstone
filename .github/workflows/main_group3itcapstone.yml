@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'Group3ItCapstone'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_26352E0C39C2465F90434A505727562C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_17D3799E342B4BE68A9923BA5D66569E }}
           package: '*.jar'
