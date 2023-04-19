@@ -1,4 +1,10 @@
 <?php
+/*
+ * Programmer Name: Lauren Kellynn
+ * Date: 2/19/2023
+ * IT Capstone Project: HomePage with PHP
+ */
+
 session_start();
 ?>
 <html lang="en">
