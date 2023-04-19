@@ -1,3 +1,8 @@
+/*
+ * Programmer Name: Emma Rawstron
+ * Date: 4/10/2023
+ * IT Capstone Project: HTML / PHP for the homepage
+ */
 <?php
 session_start();
 ?>
