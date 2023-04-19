@@ -1,0 +1,510 @@
+
+ 
+<?php
+/*
+ * Programmer Name: Lauren Kellynn & Emma Rawstron
+ * Date: 4/12/2023
+ * IT Capstone Project: PHP for Registration
+ */
+ 
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+<title>Shopping</title>
+<link rel="stylesheet" href="ExternalStyleSheet4.css">
+</head>
+<body>
+	<header>
+		<div class="nav container">
+			<a href="https://itcapstonegroupthree.infinityfreeapp.com/HomePage2.php" class="logo"><b>Home</b></a>
+			<div class="cart-area">
+			<span class="cart-icon">
+            <ion-icon name="cart-outline"></ion-icon>
+        	</span>
+        	<span class="badge" id="badge"></span>
+        	</div>
+        	<div class="cart">
+        		<h2 class="cart-title">Your Shopping Cart</h2>
+        		<div class="cart-content">
+				<?php
+					if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+						foreach ($_SESSION['cart'] as $cart_item) {
+							// Access the item details
+							$product_id = $cart_item['product_id'];
+							$size = $cart_item['size'];
+							$price = $cart_item['price'];
+							$quantity = $cart_item['quantity'];
+							$title = $cart_item['name'];
+							$image_url = $cart_item['image_url'];
+
+							// Generate the HTML for the cart item
+							echo "<div class='cart-box' data-title='$title' data-price='$price' data-image='$image_url'>";
+							echo "<img src='$image_url' alt='' class='cart-img'>";
+							echo "<div class='detail-box'>";
+							echo "<div class='cart-product-title'>$title</div>";
+							echo "<div class='cart-price'>$$price</div>";
+							echo "<input type='number' value='$quantity' class='cart-quantity'>";
+							echo "</div>";
+							echo "<ion-icon name='trash-outline' class='cart-remove'></ion-icon>";
+							echo "</div>";
+						}
+					} else {
+						echo "Your cart is empty.";
+					}
+				?>
+<!--         		      <div class="cart-box">
+       				<img src="Men1.jpg" alt="" class="cart-img">
+        				<div class="detail-box">
+        					<div class="cart-product-title">Palm Tree & Turtle Men's Swim Trunks</div>
+        					<div class="cart-price">$24.99</div>
+        					<input type="number" value="1" class="cart-quantity">
+        				</div>
+        				<ion-icon name="trash-outline" class="cart-remove"></ion-icon>  -->
+        		</div>
+        		<div class="total">
+        			<div class="total-title">Total</div>
+        			<div class="total-price" id="total-price" name="total_price">$0</div>
+             	</div>
+        		<div class="checkout">
+                <form action="cart.php" method="POST">
+        		<button type="submit" class="btn-buy">Checkout</button>
+                </form>
+        		</div>
+        		<span class="close-cart">
+					<ion-icon name="close-outline" class="cart-remove"></ion-icon>
+				</span>
+        	</div>
+		</div>
+	</header>
+        			
+	<section class="shop container">
+		<h2 class="section-title">Shop Men's Styles</h2>
+			<div class="shop-content">
+			<!-- Box1 -->
+			<div class="product-box">
+				<form action="cart_items.php" method="POST">
+					<img src="Men1.jpg" alt="Light Blue Men's Swim Trunks" class="product-img">
+					<h2 class="product-title">Palm Tree & Turtle Men's Swim Trunks</h2>
+					<input type="hidden" name="product_id" value="1">
+					<span class="price">$24.99</span>
+					<select name="size">
+						<option value="">Select Size</option>
+						<option value="Small">Small</option>
+						<option value="Medium">Medium</option>
+						<option value="Large">Large</option>
+						<option value="XL">Xtra-Large</option>
+					</select>
+					<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+				</form>
+				<br>
+			</div>
+				<!-- Box 2 -->
+				<div class="product-box">
+					<form action="cart_items.php" method="POST">
+						<img src="men2.jpg" alt="Pink Palm Tree Men's Swim Trunks" class="product-img">
+						<h2 class="product-title">Pink Palm Tree Men's Swim Trunks</h2>
+						<input type="hidden" name="product_id" value="2">
+						<span class="price">$24.99</span>
+						<select name="size">
+							<option value="">Select Size</option>
+							<option value="Small">Small</option>
+							<option value="Medium">Medium</option>
+							<option value="Large">Large</option>
+							<option value="XL">Xtra-Large</option>
+						</select>
+						<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+					</form>
+					<br>
+				</div>
+				<!-- Box 3 -->
+				<form action="cart_items.php" method="POST">
+					<div class="product-box">
+						<img src="men3.jpg" alt="Dark Blue Men's Swim Trunks" class="product-img">
+						<h2 class="product-title">Dark Blue Men's Swim Trunks</h2>
+						<input type="hidden" name="product_id" value="3">
+						<span class="price" name="price">$19.99</span>
+						<select name="size" id="size3">
+							<option selected="selected" value=" ">Select Size</option>
+							<option value="Small">Small</option>
+							<option value="Medium">Medium</option>
+							<option value="Large">Large</option>
+							<option value="XL">Xtra-Large</option>
+						</select>
+						<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+						<br>
+					</div>
+				</form>
+				<!-- Box 4 -->
+				<form action="cart_items.php" method="POST">
+					<div class="product-box">
+						<img src="men8.jpg" alt="Orange Tie-Dye Men's Swim Trunks" class="product-img">
+						<h2 class="product-title">Orange Tie-Dye Men's Swim Trunks</h2>
+						<input type="hidden" name="product_id" value="4">
+						<span class="price" name="price">$19.99</span>
+						<select name="size" id="size4">
+							<option selected="selected" value=" ">Select Size</option>
+							<option value="Small">Small</option>
+							<option value="Medium">Medium</option>
+							<option value="Large">Large</option>
+							<option value="XL">Xtra-Large</option>
+						</select>
+						<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+						<br>
+					</div>
+				</form>
+				<!-- Box 5 -->
+				<form action="cart_items.php" method="POST">
+					<div class="product-box">
+						<img src="men7.jpg" alt="Men's Black Fruity Button-Up" class="product-img">
+						<h2 class="product-title">Men's Black Fruity Button-Up</h2>
+						<input type="hidden" name="product_id" value="5">
+						<span class="price" name="price">$19.99</span>
+						<select name="size" id="size5">
+							<option selected="selected" value=" ">Select Size</option>
+							<option value="Small">Small</option>
+							<option value="Medium">Medium</option>
+							<option value="Large">Large</option>
+							<option value="XL">Xtra-Large</option>
+						</select>
+						<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+						<br>
+					</div>
+				</form>
+				<!-- Box 6 -->
+				<form action="cart_items.php" method="POST">
+					<div class="product-box">
+						<img src="men6.jpg" alt="Men's Pink Palm Tree Button-Up" class="product-img">
+						<h2 class="product-title">Men's Pink Palm Tree Button-Up</h2>
+						<input type="hidden" name="product_id" value="6">
+						<span class="price" name="price">$19.99</span>
+						<select name="size" id="size6">
+							<option selected="selected" value=" ">Select Size</option>
+							<option value="Small">Small</option>
+							<option value="Medium">Medium</option>
+							<option value="Large">Large</option>
+							<option value="XL">Xtra-Large</option>
+						</select>
+						<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+						<br>
+					</div>
+				</form>
+				<!-- Box 7 -->
+				<form action="cart_items.php" method="POST">
+					<div class="product-box">
+						<img src="men5.jpg" alt="Men's American Flag Button-Up" class="product-img">
+						<h2 class="product-title">Men's American Flag Button-Up</h2>
+						<input type="hidden" name="product_id" value="7">
+						<span class="price" name="price">$24.99</span>
+						<select name="size" id="size7">
+							<option selected="selected" value=" ">Select Size</option>
+							<option value="Small">Small</option>
+							<option value="Medium">Medium</option>
+							<option value="Large">Large</option>
+							<option value="XL">Xtra-Large</option>
+						</select>
+						<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+						<br>
+					</div>
+				</form>
+				<!-- Box 8 -->
+				<form action="cart_items.php" method="POST">
+					<div class="product-box">
+						<img src="men4.jpg" alt="Five Star Surf Shop Tee" class="product-img">
+						<h2 class="product-title">Five Star Surf Shop Tee</h2>
+						<input type="hidden" name="product_id" value="8">
+						<span class="price" name="price">$9.99</span>
+						<select name="size" id="size8">
+							<option selected="selected" value=" ">Select Size</option>
+							<option value="Small">Small</option>
+							<option value="Medium">Medium</option>
+							<option value="Large">Large</option>
+							<option value="XL">Xtra-Large</option>
+						</select>
+						<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+						<br>
+					</div>
+				</form>
+			</div>
+			
+	<br>
+	<br>
+	<br>
+	<br>
+	
+		<h2 class="section-title">Shop Women's Styles</h2>
+			<div class="shop-content2">
+			<!-- Box1 -->
+			<form action="cart_items.php" method="POST">
+				<div class="product-box">
+					<img src="woman1.jpg" alt="Black and White Cover Up 2-Pack" class="product-img">
+					<h2 class="product-title">Black and White Cover Up 2-Pack</h2>
+					<input type="hidden" name="product_id" value="9">
+					<span class="price" name="price">$19.99</span>
+					<select name="size" id="size9">
+						<option selected="selected" value=" ">Select Size</option>
+						<option value="Small">Small</option>
+						<option value="Medium">Medium</option>
+						<option value="Large">Large</option>
+						<option value="XL">Xtra-Large</option>
+					</select>
+					<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+					<br>
+				</div>
+			</form>
+				<!-- Box 2 -->
+				<form action="cart_items.php" method="POST">
+					<div class="product-box">
+						<img src="woman2.jpg" alt="Orange Boho Bikini" class="product-img">
+						<h2 class="product-title">Orange Boho Bikini</h2>
+						<input type="hidden" name="product_id" value="10">
+						<span class="price" name="price">$24.99</span>
+						<select name="size" id="size10">
+							<option selected="selected" value=" ">Select Size</option>
+							<option value="Small">Small</option>
+							<option value="Medium">Medium</option>
+							<option value="Large">Large</option>
+							<option value="XL">Xtra-Large</option>
+						</select>
+						<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+						<br>
+					</div>
+				</form>
+				<!-- Box 3 -->
+				<form action="cart_items.php" method="POST">
+					<div class="product-box">
+						<img src="woman3.jpg" alt="Pink Tie-Dye Bikini" class="product-img">
+						<h2 class="product-title">Pink Tie-Dye Bikini</h2>
+						<input type="hidden" name="product_id" value="11">
+						<span class="price" name="price">$24.99</span>
+						<select name="size" id="size11">
+							<option selected="selected" value=" ">Select Size</option>
+							<option value="Small">Small</option>
+							<option value="Medium">Medium</option>
+							<option value="Large">Large</option>
+							<option value="XL">Xtra-Large</option>
+						</select>
+						<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+						<br>
+					</div>
+				</form>
+				<!-- Box 4 -->
+				<form action="cart_items.php" method="POST">
+					<div class="product-box">
+						<img src="woman4.jpg" alt="Classic Black Bikini" class="product-img">
+						<h2 class="product-title">Classic Black Bikini</h2>
+						<input type="hidden" name="product_id" value="12">
+						<span class="price" name="price">$19.99</span>
+						<select name="size" id="size12">
+							<option selected="selected" value=" ">Select Size</option>
+							<option value="Small">Small</option>
+							<option value="Medium">Medium</option>
+							<option value="Large">Large</option>
+							<option value="XL">Xtra-Large</option>
+						</select>
+						<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+						<br>
+					</div>
+				</form>
+				<!-- Box 5 -->
+				<form action="cart_items.php" method="POST">
+					<div class="product-box">
+						<img src="woman5.jpeg" alt="Women's White Beach Pants" class="product-img">
+						<h2 class="product-title">Women's White Beach Pants</h2>
+						<input type="hidden" name="product_id" value="13">
+						<span class="price" name="price">$24.99</span>
+						<select name="size" id="size13">
+							<option selected="selected" value=" ">Select Size</option>
+							<option value="Small">Small</option>
+							<option value="Medium">Medium</option>
+							<option value="Large">Large</option>
+							<option value="XL">Xtra-Large</option>
+						</select>
+						<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+						<br>
+					</div>
+				</form>
+				<!-- Box 6 -->
+				<form action="cart_items.php" method="POST">
+					<div class="product-box">
+						<img src="woman6.jpg" alt="Women's White Cover Up" class="product-img">
+						<h2 class="product-title">Women's White Cover Up</h2>
+						<input type="hidden" name="product_id" value="14">
+						<span class="price" name="price">$19.99</span>
+						<select name="size" id="size14">
+							<option selected="selected" value=" ">Select Size</option>
+							<option value="Small">Small</option>
+							<option value="Medium">Medium</option>
+							<option value="Large">Large</option>
+							<option value="XL">Xtra-Large</option>
+						</select>
+						<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+						<br>
+					</div>
+				</form>
+				<!-- Box 7 -->
+				<form action="cart_items.php" method="POST">
+					<div class="product-box">
+						<img src="woman9.jpeg" alt="Women's Blue Skater Dress" class="product-img">
+						<h2 class="product-title">Women's Blue Skater Dress</h2>
+						<input type="hidden" name="product_id" value="15">
+						<span class="price" name="price">$24.99</span>
+						<select name="size" id="size15">
+							<option selected="selected" value=" ">Select Size</option>
+							<option value="Small">Small</option>
+							<option value="Medium">Medium</option>
+							<option value="Large">Large</option>
+							<option value="XL">Xtra-Large</option>
+						</select>
+						<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+						<br>
+					</div>
+				</form>
+				<!-- Box 8 -->
+				<form action="cart_items.php" method="POST">
+					<div class="product-box">
+						<img src="woman10.jpg" alt="Women's Flower Dress" class="product-img">
+						<h2 class="product-title">Women's Flower Dress</h2>
+						<input type="hidden" name="product_id" value="16">
+						<span class="price" name="price">$24.99</span>
+						<select name="size" id="size16">
+							<option selected="selected" value=" ">Select Size</option>
+							<option value="Small">Small</option>
+							<option value="Medium">Medium</option>
+							<option value="Large">Large</option>
+							<option value="XL">Xtra-Large</option>
+						</select>
+						<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+						<br>
+						<br>
+					</div>
+				</form>
+			</div>
+			
+	<br>
+	<br>
+	<br>
+	<br>
+	
+		<h2 class="section-title">Shop Surf & SkateBoards - 50% Summer Sale!</h2>
+			<div class="shop-content3">
+			<!-- Box1 -->
+            <form action="cart_items.php" method="POST">
+				<div class="product-box">
+					<img src="board1.jpeg" alt="Black and White Skateboard" class="product-img">
+					<h2 class="product-title">Black and White Skateboard</h2>
+                    <input type="hidden" name="product_id" value="17">
+					<span class="price" name="price">$49.99</span>
+  					<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+  					<br>
+				</div>
+                </form>
+				<!-- Box 2 -->
+                <form action="cart_items.php" method="POST">
+				<div class="product-box">
+					<img src="board2.jpeg" alt="Blue Lightning Skateboard" class="product-img">
+					<h2 class="product-title">Blue Lightning Skateboard</h2>
+					<input type="hidden" name="product_id" value="18">
+					<span class="price" name="price">$49.99</span>
+  					<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+  					<br>
+  					</div>
+                </form>
+				<!-- Box 3 -->
+                <form action="cart_items.php" method="POST">
+				<div class="product-box">
+					<img src="board3.jpeg" alt="Brown Moth Skateboard" class="product-img">
+					<h2 class="product-title">Brown Moth Skateboard</h2>
+					<input type="hidden" name="product_id" value="19">
+					<span class="price" name="price">$74.99</span>
+  					<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+  					<br>
+				</div>
+                </form>
+				<!-- Box 4 -->
+                <form action="cart_items.php" method="POST">
+				<div class="product-box">
+					<img src="board4.jpeg" alt="Panda Skateboard" class="product-img">
+					<h2 class="product-title">Panda Skateboard</h2>
+					<input type="hidden" name="product_id" value="20">
+					<span class="price" name="price">$74.99</span>
+  					<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+  					<br>
+				</div>
+                </form>
+				<!-- Box 5 -->
+                <form action="cart_items.php" method="POST">
+				<div class="product-box">
+					<img src="board6.jpeg" alt="Classic White Surfboard" class="product-img">
+					<h2 class="product-title">Classic White Surfboard</h2>
+					<input type="hidden" name="product_id" value="21">
+					<span class="price" name="price">$199.99</span>
+  					<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+  					<br>
+				</div>
+                </form>
+					<!-- Box 6 -->
+                <form action="cart_items.php" method="POST">
+				<div class="product-box">
+					<img src="board7.jpeg" alt="Classic Red Surfboard" class="product-img">
+					<h2 class="product-title">Classic Red Surfboard</h2>
+					<input type="hidden" name="product_id" value="22">
+					<span class="price" name="price">$199.99</span>
+  					<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+  					<br>
+				</div>
+                </form>
+				<!-- Box 7 -->
+                <form action="cart_items.php" method="POST">
+				<div class="product-box">
+					<img src="board8.jpeg" alt="Classic Blue Surfboard" class="product-img">
+					<h2 class="product-title">Classic Blue Surfboard</h2>
+					<input type="hidden" name="product_id" value="23">
+					<span class="price" name="price">$199.99</span>
+  					<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+  					<br>
+				</div>
+                </form>
+				<!-- Box 8 -->
+                <form action="cart_items.php" method="POST">
+				<div class="product-box">
+					<img src="board9.jpeg" alt="Deluxe Blue Surfboard" class="product-img">
+					<h2 class="product-title">Deluxe Blue Surfboard</h2>
+					<input type="hidden" name="product_id" value="24">
+					<span class="price" name="price">$249.99</span>
+  					<button type="submit"><ion-icon name="bag-handle-outline" class="add-cart"></ion-icon></button>
+  					<br>
+				</div>
+                </form>
+			</div>
+	</section>
+    </form>
+<script src="cart.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>	
+    <script>
+    // Check if the cart_updated parameter is present in the URL
+	function getURLParameter(name) {
+	  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
+	}
+  
+	if (getURLParameter('cart_updated') === '1') {
+	  // Show the cart popup
+	  showCartPopup();
+	}
+  
+	// Add the function to show the cart popup
+	function showCartPopup() {
+	  document.querySelector('.cart').classList.add('active');
+	  updateTotal();
+	}
+  
+	// Add event listener to close cart popup
+	document.querySelector('.close-cart').addEventListener('click', function() {
+	  document.querySelector('.cart').classList.remove('active');
+	});
+    </script>
+</body>
+</html>
