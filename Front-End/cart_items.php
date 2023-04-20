@@ -1,3 +1,8 @@
+/*
+ * Programmer Name: Emma Rawstron & Lauren Kellynn
+ * Date: 4/10/2023
+ * IT Capstone Project: Add to cart
+ */
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
