@@ -1,3 +1,9 @@
+/*
+ * Programmer Name: Lauren Kellynn & Emma Rawstron
+ * Date: 4/12/2023
+ * IT Capstone Project: PHP for Login
+ */
+
 <?php
 session_start();
 
