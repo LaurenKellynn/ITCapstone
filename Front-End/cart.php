@@ -18,7 +18,7 @@ $order_id = $_SESSION['order_id'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $con = new mysqli("itcapstonegroup3.mysql.database.azure.com", "ITCapstone3", "Group3isthebest!", "db_group3", 3306);
+    $con = new mysqli("itcapstonegroup3.mysql.database.azure.com", "ITCapstone3", "", "db_group3", 3306);
     if ($con->connect_error) {
         die('Connection Failed : '.$con->connect_error);
     } else {
