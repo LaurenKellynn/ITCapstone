@@ -37,14 +37,18 @@ public class SearchFrame extends JFrame {
     private void init() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());// Set the layout for the frame
-        this.setTitle("Five Star Surf Query"); // Set the title
+        
+        // Set the title
+        this.setTitle("Five Star Surf Query");
 
         searchPanel = createSearchPanel();
         resultPanel = new ResultPanel(this); 
-
-        this.add(searchPanel, BorderLayout.PAGE_START);// Add panels to the frame
-        this.add(resultPanel, BorderLayout.CENTER);
         
+        // Add panels to the frame
+        this.add(searchPanel, BorderLayout.PAGE_START);
+        this.add(resultPanel, BorderLayout.CENTER);
+
+        // Create and add the menubar
         CustomMenuBar customMenuBar = new CustomMenuBar(this);
         this.setJMenuBar(customMenuBar);
         
