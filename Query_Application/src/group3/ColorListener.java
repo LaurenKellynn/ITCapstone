@@ -80,7 +80,6 @@ public class ColorListener implements ActionListener {
     // ActionListener: toggles dark mode based on user input
     @Override
     public void actionPerformed(ActionEvent e) {
-        //darkModeSelected = frame.darkModeCheckBox.isSelected();
         darkModeSelected = ((JCheckBoxMenuItem)e.getSource()).isSelected();
         initializeColors();
     }
