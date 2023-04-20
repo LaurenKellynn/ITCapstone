@@ -38,16 +38,22 @@ public class ResultPanel extends JPanel {
             public TableCellRenderer getCellRenderer (int r, int c) {
                 return render;
             }
-        };  
-        tableHeader = resultTable.getTableHeader(); // Create table header
-
-        resultTable.setShowHorizontalLines(false); // Hides horizontal lines 
-        resultTable.setShowVerticalLines(false); // Hides vertical lines 
+        };
         
-        placeComponents(this); //Add components to panel and set layout
+        // Create table header
+        tableHeader = resultTable.getTableHeader();
+        
+        // Hides horizontal and vertical lines 
+        resultTable.setShowHorizontalLines(false);
+        resultTable.setShowVerticalLines(false);
+        
+        //Add components to panel and set layout
+        placeComponents(this); 
 
-        this.setBorder(BorderFactory.createEmptyBorder(5,20,20,20));            
-        this.setVisible(false); //Hide the result panel
+        this.setBorder(BorderFactory.createEmptyBorder(5,20,20,20));
+        
+        //Hide the result panel
+        this.setVisible(false);
         
         // Add mouse listener for table selection events
         resultTable.addMouseListener(new TableListener(this));
@@ -57,8 +63,9 @@ public class ResultPanel extends JPanel {
     private void placeComponents(Container panel) {         
         panel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-            
-        resultLabel = new JLabel(""); //Text changes based on the chosen query
+        
+        //Results label text changes based on the chosen query
+        resultLabel = new JLabel("");
         //gbc.anchor = GridBagConstraints.CENTER;
         //gbc.fill = GridBagConstraints.BOTH;   
         gbc.gridx = 1;
@@ -69,7 +76,8 @@ public class ResultPanel extends JPanel {
         gbc.insets = new Insets(0, 0, 5, 0); //top, left, bottom, right
         panel.add(resultLabel, gbc);
         
-        scroll = new JScrollPane(resultTable); //Add resultTable to scrollPane
+        //Add resultTable to scrollPane
+        scroll = new JScrollPane(resultTable);
         scroll.setColumnHeader(scroll.getColumnHeader());
         scroll.add(tableHeader);
         //gbc.anchor = GridBagConstraints.WEST;
