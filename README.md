@@ -1,4 +1,12 @@
 # ITCapstone
+
+
+Lars Kellynn, Software Development 1, 202410-CEN-3024C-14835
+This was the repository and code my team and I used for our final project for the IT Capstone class. We made a full-stack website written in JavaScript, HTML, CSS, PHP with a customer query application written in Java and an SQL database to store orders and customer data.
+Customers can place orders by adding them to their cart. Our program does validation checks to ensure there is enough stock of that product and then removes the product from the inventory if so, once the customer hits the "check-out" button, the order information as well as customer data is saved in our database. Users even have the opportunity to login to their accounts to save order data.
+
+
+
 IT Capstone Group Project
 
 
